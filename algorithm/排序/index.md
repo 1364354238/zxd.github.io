@@ -3,10 +3,10 @@
 
 <a name="index></a>
          
-##- [Z形变换](#1.1)
+## - [Z形变换](#1.1)
 
 
- ###-<a name="1.1">Z形变换</a>([官方解答](https://leetcode-cn.com/problems/zigzag-conversion/solution/6-z-zi-xing-bian-huan-c-c-by-bian-bian-xiong/))
+ ### <a name="1.1">Z形变换</a>([官方解答](https://leetcode-cn.com/problems/zigzag-conversion/solution/6-z-zi-xing-bian-huan-c-c-by-bian-bian-xiong/))
  
 将一个给定字符串 s 根据给定的行数 numRows ，以从上往下、从左到右进行 Z 字形排列。(返回[目录](#index))
 
