@@ -21,5 +21,5 @@
     
   < 示例：
       
-       [首页](https://leetcode-cn.com/problems/tenth-line/solution/da-yin-di-shi-xing-cha-zhao-chang-yong-ming-ling-b/)
+   [首页](https://leetcode-cn.com/problems/tenth-line/solution/da-yin-di-shi-xing-cha-zhao-chang-yong-ming-ling-b/)
       
