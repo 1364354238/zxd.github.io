@@ -19,7 +19,7 @@
     
     打印关键字上n行下m行 ：grep -A n -B m 'KeyWord' filename
     
-   ### 示例：
+  < 示例：
       
-      [打印第十行](https://leetcode-cn.com/problems/tenth-line/solution/da-yin-di-shi-xing-cha-zhao-chang-yong-ming-ling-b/)
+       [首页](https://leetcode-cn.com/problems/tenth-line/solution/da-yin-di-shi-xing-cha-zhao-chang-yong-ming-ling-b/)
       
