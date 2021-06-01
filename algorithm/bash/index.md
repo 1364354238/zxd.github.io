@@ -2,7 +2,7 @@
 # 正则表达式
 ---
 
- 返回[首页](https://github.com/1364354238/zxd.github.io)
+ 返回[首页] (https://github.com/1364354238/zxd.github.io)
  
  <a name='index'></a>
 
@@ -20,5 +20,5 @@
     
     ### 示例：
       
-      [打印第十行](https://leetcode-cn.com/problems/tenth-line/solution/da-yin-di-shi-xing-cha-zhao-chang-yong-ming-ling-b/)
+      [打印第十行] (https://leetcode-cn.com/problems/tenth-line/solution/da-yin-di-shi-xing-cha-zhao-chang-yong-ming-ling-b/)
       
