@@ -21,5 +21,5 @@
     
     ### 示例：
       
-      [打印第十行] (https://leetcode-cn.com/problems/tenth-line/solution/da-yin-di-shi-xing-cha-zhao-chang-yong-ming-ling-b/)
+      [打印第十行](https://leetcode-cn.com/problems/tenth-line/solution/da-yin-di-shi-xing-cha-zhao-chang-yong-ming-ling-b/)
       
