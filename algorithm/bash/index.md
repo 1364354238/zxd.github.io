@@ -8,13 +8,13 @@
 
  ## 打印
  
-    | 打印第n行 | sed -n 'np' filename |
-    | :----- | :-------: |
-    | 打印1-n行 | sed -n '1,np' filename |
-    | 打印 关键字上下n行 | grep -C n 'KeyWord' filename |
-    | 打印关键字 | grep -n 'KeyWord' filename |
-    | 打印关键字上n行下m行 | grep -A n -B m 'KeyWord' filename |
-    | 查找指定字符出现次数 | grep -o 'KeyWord' filename \| wc -1 |
+ | 打印第n行 | sed -n 'np' filename |
+ | :----- | :-------: |
+ | 打印1-n行 | sed -n '1,np' filename |
+ | 打印 关键字上下n行 | grep -C n 'KeyWord' filename |
+ | 打印关键字 | grep -n 'KeyWord' filename |
+ | 打印关键字上n行下m行 | grep -A n -B m 'KeyWord' filename |
+ | 查找指定字符出现次数 | grep -o 'KeyWord' filename \| wc -1 |
     
   **示例：**
       
