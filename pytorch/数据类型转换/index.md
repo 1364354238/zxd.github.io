@@ -22,6 +22,7 @@ if(torch.cuda.is_available()):
 
 //cuda tensor->numpy,先要将数据移到CPU上
 cuda2numpy=num_tensor.cpu().numpy()
+```
 
 
 
