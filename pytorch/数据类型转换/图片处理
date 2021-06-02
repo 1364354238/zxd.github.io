@@ -1,0 +1,57 @@
+# 对图片进行处理
+
+### 1.定义一个transform
+```python
+from torchvision import transforms
+transform=transfroms.Compose([
+    #Resize只改变H,W
+    transforms.Resize((224,224),
+    #[H,W,c]->[C,H,W],再转换为float，最后每一个像素除以255
+    transforms.Totensor()
+])
+```
+
+### 2.输入图像数据
+
+  transform默认的输入是PIL读取的图片，输出是tensor。所以输入的如果是数组，需要先转换为numpy，在转换
+
+```python
+from PIL import Image
+import numpy as np
+from matplotlib import pyplot as plt
+
+#读取图片
+img=plt.imread(img_path)
+
+#转化为numpy
+img=np.array(img)
+
+#转换为PIL,首先要np.darray->np.unit8,确保取[0,255]之间的整数
+img=img.astype(np.unit8)
+
+#np->PIL
+img=Image.fromarray(a)
+
+img=transform(img)
+```
+
+### 3.输出图像
+  transform输出的是tensor类型，需要转换为numpy，才能作为图像输出
+  
+```python
+import numpy as np
+from matplotlib import pyplot as plt
+
+#tensor->numpy
+img=img.numpy()
+
+#因为transform得到的是[C,H,W],所以需要改变一下顺序
+img=img.transpose(1,2,0)
+
+#输出图像
+plt.imshow(img)
+plt.show(img)
+```
+
+
+
