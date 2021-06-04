@@ -6,6 +6,8 @@
 ```python
  num_tenor=torch.ones(2,3)
  num_numpy=np.ones((2,3))
+ shape=num_numpy.shape
+ size=num_tensor.size()
 ```
 
 - **将tensor转换为numpy,二者共用存储空间**
