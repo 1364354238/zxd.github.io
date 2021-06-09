@@ -115,8 +115,15 @@ class Solution{
 
 
 ### <a name='完全背包'>完全背包</a>
-> 完全背包是指weight[i]对应的物体个数是无限的，状态方程为dp[i][j]=max(dp[i-1][j],dp[i-1][j-k/*weight(i-1)]+k*value[i-1];
-> 
+> 完全背包是指weight[i]对应的物体个数是无限的，状态方程为dp[i][j]=max(dp[i-1][j],dp[i-1][j-k\*weight(i-1)]+k\*value[i-1];
+> <br/>相当于增加了循环维度，范围是0<=k\*value[i-1]<=j;
+> <br/>优化方法是降维，然后正序循环。
+> <br/>正序循环的原因是状态转换方程可以转换为dp[i][j]=max(dp[i-1][j],dp[i][j-weight(i-1)]+value[i-1]),所dp[i][j]只依赖于自己和同行左侧的值，所以只需要顺序更新就行。
+
+
 
 
 ### <a name='多重背包'>多重背包</a>
+
+>多重背包是指weight[i]对应对物体个数是有限的，由数组nums[i]记录,可以理解为k多了一个限制条件k<=nums[i],状态方程和完全背包一致
+><br/>优化方法
