@@ -4,7 +4,7 @@
 <a name="index"> </a>
          
 ## - [Z形变换](#1.1)
-
+## - [二分查找](#1.2)
 
  ### <a name="1.1">Z形变换</a>([官方解答](https://leetcode-cn.com/problems/zigzag-conversion/solution/6-z-zi-xing-bian-huan-c-c-by-bian-bian-xiong/))
  
@@ -42,6 +42,38 @@ class Solution {
     }
 }
 ```                                 
+ ### <a name="1.2">二分查找</a>[排列硬币](https://leetcode-cn.com/problems/arranging-coins/)
+>首先确定循环条件(left<right),然后是是mid的选取,结束循环是left=right,根据题目返回正确值。
 
+ | mid|left|right|
+ |:---|:---:|:---:|
+ |mid=(left+right)/2+1|left=mid|right=mid-1|
+ |mid=(left+right)/2|left=mid+1|right=mid|
+ 
+ ```java
+ class Solution {
+    public int arrangeCoins(int n) {
+        if(n<2){
+            return 1;
+        }
+        long index=1;
+        long right=n;
+        while(index<right){
+            long mid=index+(right-index)/2;
+            long sum=mid*(mid+1)/2;
+            if(sum<n){
+                index=mid+1;
+            }else if(sum>n){
+                right=mid;
+            }else{
+                return (int)mid;
+            }
+        }
+     
+        return (int)index-1;
+    }
+}
+```
 
+ 
 
