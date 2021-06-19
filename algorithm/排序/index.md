@@ -42,7 +42,10 @@ class Solution {
     }
 }
 ```                                 
- ### <a name="1.2">二分查找</a>[排列硬币](https://leetcode-cn.com/problems/arranging-coins/)
+ ### <a name="1.2">二分查找</a>
+ 
+ -[排列硬币](https://leetcode-cn.com/problems/arranging-coins/)
+
 >首先确定循环条件(left<right),然后是是mid的选取,结束循环是left=right,根据题目返回正确值。
 
  | mid|left|right|
