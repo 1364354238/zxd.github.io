@@ -54,7 +54,7 @@ public static void main(String args[]){
 ```
 如果想自定义排序方式就需要重比较器
 
-** 重写的方式主要有两种:
+**重写的方式主要有两种:**
 
 - Collections.sort(list,Comparator<T>);
 - list.sort(Comparator<T>);
