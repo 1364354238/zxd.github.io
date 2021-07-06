@@ -75,6 +75,14 @@ list.sort(new Comparator<Student>() {
         return o1.getId() - o2.getId();
     }
 });
+    
+ //如果是String类型
+  Collections.sort(list,new Comparator<Student>()){
+  @Override
+  //改为对id降序排列
+  public int compare(Student s1,Student s2){
+    return s2.campareTo(s1);
+  }  
   ```
 
   
