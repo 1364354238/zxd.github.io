@@ -52,7 +52,7 @@ class Solution {
  |:---|:---:|:---:|
  |mid=(left+right)/2+1|left=mid|right=mid-1|
  |mid=(left+right)/2|left=mid+1|right=mid|
- |mid=(left+right)/2(while(left=right)|left=mid+1|right=mid-1|
+ |mid=(left+right)/2(while(left<=right)|left=mid+1|right=mid-1|
  
  
  ```java
