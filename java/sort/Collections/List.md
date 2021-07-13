@@ -86,7 +86,7 @@ list.sort(new Comparator<Student>() {
     
   //第三种
     Collections.sort(list,(s1,s2)->{
-        return s1.compareTo(s2)
+        return s1.compareTo(s2);
     });
   ```
 
