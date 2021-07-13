@@ -52,9 +52,9 @@ public static void main(String args[]){
         }
 }
 ```
-如果想自定义排序方式就需要重比较器
+如果想自定义排序方式就需要重写比较器，并且比较的对象必须有Comparable接口
 
-**重写的方式主要有两种:**
+**重写的方式主要有三种:**
 
 - Collections.sort(list,Comparator<T>);
 - list.sort(Comparator<T>);
@@ -81,8 +81,13 @@ list.sort(new Comparator<Student>() {
   @Override
   //改为对id降序排列
   public int compare(Student s1,Student s2){
-    return s2.campareTo(s1);
-  }  
+    return s2.compareTo(s1);
+  }
+    
+  //第三种
+    Collections.sort(list,(s1,s2)->{
+        return s1.compareTo(s2)
+    });
   ```
 
   
