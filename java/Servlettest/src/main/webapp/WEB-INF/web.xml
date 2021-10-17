@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"
+         version="4.0">
+<!--上下文参数-->
+    <context-param>
+        <param-name>userContext</param-name>
+        <param-value>rootContext</param-value>
+    </context-param>
+    <context-param>
+        <param-name>pwContext</param-name>
+        <param-value>123Context</param-value>
+    </context-param>
+
+<!--    servlet标签给Tomcat配置Servlet程序-->
+    <servlet>
+<!--        servlet-name:Servlet程序别名(一般是类名)-->
+        <servlet-name>HelloServlet</servlet-name>
+<!--        servlet-class是Servlet程序的全类名-->
+        <servlet-class>com.example.Servlettest.HelloServlet</servlet-class>
+<!--       init-param是初始化参数，参数名，参数值-->
+        <init-param>
+            <param-name>user</param-name>
+            <param-value>root</param-value>
+        </init-param>
+    </servlet>
+<!--    servlet-mapping标签给Servlet程序配置访问地址-->
+    <servlet-mapping>
+<!--        告诉服务器我当前配置的地址给哪个Servlet程序使用-->
+        <servlet-name>HelloServlet</servlet-name>
+<!--        标签配置的访问地址
+            /:斜杠在服务器解析时，表示为http://ip:port/工程路径
+            /hello:表示为http://ip:port/工程路径/hello,hello是在浏览器地址栏输入的地址
+-->
+        <url-pattern>/hello</url-pattern>
+    </servlet-mapping>
+    
+    <servlet>
+        <servlet-name>HelloServlet2</servlet-name>
+        <servlet-class>com.example.Servlettest.HelloServlet2</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>HelloServlet3</servlet-name>
+        <servlet-class>com.example.Servlettest.HelloServlet3</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ServletContexttest</servlet-name>
+        <servlet-class>com.example.Servlettest.ServletContexttest</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>HttpServlettest</servlet-name>
+        <servlet-class>com.example.Servlettest.HttpServlettest</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>Servlet1</servlet-name>
+        <servlet-class>com.example.Servlettest.Servlet1</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>Servlet2</servlet-name>
+        <servlet-class>com.example.Servlettest.Servlet2</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>Servlet1</servlet-name>
+        <url-pattern>/servlet1</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Servlet2</servlet-name>
+        <url-pattern>/servlet2</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>HttpServlettest</servlet-name>
+        <url-pattern>/ServletApi</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ServletContexttest</servlet-name>
+        <url-pattern>/Context</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>HelloServlet2</servlet-name>
+        <url-pattern>/hello2</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+    <servlet-name>HelloServlet3</servlet-name>
+    <url-pattern>/hello3</url-pattern>
+</servlet-mapping>
+
+</web-app>
