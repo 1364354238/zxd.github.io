@@ -14,5 +14,4 @@
 >当用户提交完请求后，浏览器会记录下最后一次请求的全部信息，当用户刷新时，就会再一次的发起同一个请求
 
 #使用Filter 和ThreadLocal 组合管理事务
->使用ThreadLocal确保所有的Dao操作都在一个connection里,前提条件是所有操作都在一个线程中完成
-> 
+>使用ThreadLocal确保所有的Dao操作都在一个connection里,前提条件是所有操作都在一个线程中完成.
