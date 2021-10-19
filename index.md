@@ -44,6 +44,7 @@
 - vcs:create git repository
 - 加入到暂存区，右键-》git-》add
 - 提交本地库，git-》commit
+- push到远程库：SSH keys（要保证本地库代码版本要比远程库的版本要高，push前先pull）
 
 #Gitee码云
 
