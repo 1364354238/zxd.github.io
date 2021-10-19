@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>你好</title>
+</head>
+<!--
+  onclick:点击事件
+  alter()：js提供的一个警告窗函数
+  align="":页面位置 center,left,right
+
+-->
+<body bgcolor="#fff8dc">
+  <h1 >hello 世界</h1>
+<br/>
+  <button onclick="alert('弹窗')">按钮</button>
+  <hr>水平线
+<!--target=_self 当前页面打开，target=_blank 在新页面打开,target=_parent 返回父页面（没有，默认_self)，target=_top 返回祖先页面-->
+<br/>
+  <a href="https://www.baidu.com/" target="_self">跳转百度</a>
+  <a href="https://www.baidu.com/" target="_blank">新页面百度</a>
+<br/>
+  <img src="ILSVRC2012_val_00008420.JPEG" width="200" height="200" border="10" alt="显示异常" title="图片" >
+<br/>
+<!--iframe ：在页面上开辟一个小区域显示一个单独的页面-->
+  <iframe src="tableTest.html" width="500" height="400" name="iframe"></iframe>
+  <br/>
+  <a href="https://www.baidu.com/" target="iframe" >百度</a>
+<br/>
+<!--  <p>:段落标签,默认上下方添加空白行，有了就不加
+      <div>:占一行
+      <span>:长度为封装数据长度
+-->
+  <p>
+    段落一
+  </p>
+  <span>封装数据长度</span>
+  <div>
+  独占一行
+  </div>
+
+
+</body>
+</html>

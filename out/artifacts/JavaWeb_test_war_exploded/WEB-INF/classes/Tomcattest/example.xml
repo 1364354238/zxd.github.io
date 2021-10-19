@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!--context:表示一个工程的上下文
+path:工程的访问路径
+docBase：工程目录
+-->
+<Context path="/projectname" docBase="D:\IdeaProjects/JavaWeb_test/src/bookstore"/>

@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <script src="jquery-3.6.0.js">
+<!--    jQuery在浏览器加载完HTML内核创建dom对象后立即执行，window.onload()在创建dom对象后，还要等标签显示的内容加载完成时才执行且只执行最后一个-->
+  </script>
+<!--  $是一个函数，
+当传入$而是一个函数时，HTML加载完之后自动调用
+传入HTML字符串时，会创建这个字符串的标签节点
+当传入参数为[选择器字符串]（id选择器)时,查找该对象
+当传入节点为[Dom]对象时，将DOM对象包装为jQuery对象返回-->
+<!--  jQuery选择器
+  $(*)匹配所有
+  组合选择器：$(div,.hidebtn,#id01)
+  层级选择器：1.$(祖先 后代):选定对应祖先的子孙标签,$(body div)
+            2.$(父->子1）:儿子标签（所有子1）
+            3.$(标签1+标签2）：标签1的下一个标签2（第1个标签2）（按从上到下的顺序)
+            4.$(标签1~同级标签):兄弟标签
+   过滤选择器：1.$(标签:first) ,$(div:last),$(div:even),$(div:odd),
+              2.$(div:eq(4)):下标等于4（第5个）
+              3 $(div:gt(2)):下标大于2
+              4 $(div:lt(2)):下标小于2
+              5.$(div:not(#id01)):
+    内容过滤器：1.$(div:contains(文本)):
+               2.$(div:empty)：不包含子元素和文本
+               3.$(div:parent):包含子元素或文本
+               4.$(div:has(元素名))
+    可见性过滤选择器：1.$(div:hidden)2.$(div:visible)
+    属性过滤选择器:1.$(div[id][name='123']):有id(name ,value....)属性的div元素,
+                  2.$(div[id='123']),$(div[id!='123'])
+                  3.$(div[id^='123']):开头=‘123’
+                  4.$(div[id$='123'])：结尾=‘123’
+                  5.$(div[id*='123']):包含'123'
+    表单选择器:
+                1.$(":input")      //匹配所有 input, textarea, select 和 button 元素
+                2.$(":submit")     //所有提交按钮、
+     状态过滤选择器：$("input:enabled")    // 匹配可用的 input
+                    $("input:disabled")   // 匹配不可用的 input
+                    $("input:checked")    // 匹配选中的 input
+                    $("option:selected")  // 匹配选中的 option
+     可以嵌套 1.$(":input:disable")
+
+ 标签de增删改：
+        增：appendTo()，prependTo()，a.after("123"):"123"插在a的后面,before();
+        删:a.remove(过滤器):删除a和a的子元素，a.empty():删除a的子元素
+        改：a.replaceWith(b):b替换a, a.replaceAll(b):a替换掉b
+-->
+  <script>
+    $(document).ready(function() {
+      //appendTo：成为最后一个子元素，prependTo成为第一个子元素
+      $("<span>最后一个传入HTML字符串</span>").appendTo("body");
+      $("<span>第一个传入HTML字符串</span>").prependTo("body");
+      let $hobby=$("</br><label >兴趣</label>\n <input type=\"checkbox\" name=\"兴趣\" value=\"篮球\"/>足球" +
+              "<input type=\"checkbox\" name=\"兴趣2\" value=\"足球\"/>足球2</br>");
+      //jQuery对象是dom对象数组+jQuery提供的一系列功能函数,
+      //  .css()设置和获取样式,.val()获取和设置表单项的value值
+      $("div").css("background-color", "red");
+      //each遍历,jquery提供了遍历好的元素this(dom对象）
+      $("div").each(function () {
+        //相当于innerHTML,可以设置
+        $(this).html("设置的值");
+        //只显示文本内容，不显示标签
+        alert($(this).text());
+      })
+      $(".hidebtn").click(function () {
+        //$(标签名) $(#id) $(".class属性值")，返回jQuery对象
+        $("div").hide(1000, "linear", function () {
+          alert("Hide() 方法已完成!");
+        });
+      });
+      //  attr（属性），获取属性值
+      $("#button0").click(function () {
+        //  attr（属性），获取属性值，不推荐操控checked，readonly,selected,disabled(用prop())
+        alert($(".hidebtn").attr("id"));
+        alert($(":radio").first().prop("checked"));
+      });
+      $("#button2").click(function () {
+        if(confirm("要添加["+$hobby.innerHTML+"]吗")){
+          $hobby.appendTo("form");
+        }
+      })
+    });
+
+  </script>
+</head>
+<body>
+
+<!--<div>隐藏及设置回调函数</div>-->
+<div>显示<span></span></div>
+<button class="hidebtn" id="hid">隐藏</button>
+<button id="button0">获取id属性值</button>
+<button id="button2">添加兴趣</button>
+<form action="http://localhost:8080" method="get">
+  <label for="name">用户名</label>
+  <input id="name" name="用户名" type="text" value="默认值">
+  <br/>
+  <label for="password">密码</label>
+  <input id="password" name="密码" type="password">
+  <br>
+  <label >性别</label>
+  <input checked="checked" name="sex" type="radio" value="boy">男<input name="sex" type="radio" value="girl">女
+  <br>
+  <label >兴趣</label>
+  <input name="兴趣" type="checkbox" value="篮球"/>篮球<input name="兴趣" type="checkbox" value="足球"/>足球
+  <br>
+  <label>国籍</label>
+  <select name="国籍">
+    <option>请选择国籍</option>
+    <option selected="selected">中国</option>
+    <option >美国</option>
+    <option >日本</option>
+  </select>
+  <br>
+  <label >自我介绍</label>
+  <textarea cols="10" rows="10">默认值</textarea>
+  <br>
+  <button type="submit">提交</button>
+  <br>
+  <button type="reset">重置</button>
+</form>
+</body>
+</html>

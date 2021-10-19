@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JS单独写一个文件</title>
+    <script type="text/javascript" src="01.js"></script>
+</head>
+<!--静态注册：<body onload="">-->
+<body >
+<h1>在head处(scrip type="text/javascript" src=JS文件)</h1>
+  <p class="guesses">段落1</p>
+    <button id="button1">显示时间</button>
+<br/>
+    失去焦点<input type="text" id="blur1">
+<br/>
+    兴趣:
+<select id="兴趣">
+    <option>篮球</option>
+    <option>足球</option>
+    <option>台球</option>
+</select>
+<br/>
+<form action="http://localhost:8080" method="get" id="表单">
+    <input type="submit" name="submit" value="注册">
+</form>
+<br/>
+    用户名<input type="text" id="username" value="">
+    <button id="check" onclick="onclickFun()">校验</button>
+    <span id="userSpan" style="color: #ff3b63" >为空</span>
+<br/>
+    爱好<input type="checkbox" name="hobby">看书
+        <input type="checkbox" name="hobby">睡觉
+        <input type="checkbox" name="hobby">打游戏
+<br/>
+<button id="select" onclick="selectAll()">全选</button>
+<button id="selectNo" onclick="selectNo()">全不选</button>
+<button id="selectReverse" onclick="selectReverse()">反选</button>
+</body>
+</html>

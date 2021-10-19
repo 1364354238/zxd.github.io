@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>jQuery常用的事件方法</title>
+  <!--
+      click():绑定和触发单击事件(不传function是触发）
+      mouseover():绑定和触发鼠标移入事件
+      mouseout():鼠标移出
+      on():给元素一次绑定一个或多个事件
+      one():绑定一个事件，响应后解绑
+      off():解绑
+      事件的冒泡：父子元素同时绑定同一个事件，触发子元素事件时，父元素相同事件也会响应
+      阻止冒泡：return false
+      事件对象：封装了事件信息的js对象
+  -->
+  <script src="jquery-3.6.0.js"></script>
+  <script type="text/javascript">
+<!--    获取事件对象-->
+    window.onload=function () {
+      document.getElementById().onclick=(function (event) {
+        console.log(event);
+      });
+    };
+    $(function () {
+      $("#b1").click(function () {
+        alert("绑定事件");
+      });
+      $("#b2").click(function () {
+        $("#b1").click();
+      });
+
+      $("#img1").on("mouseover mouseout mousemove",function (event) {
+        if(event.type==="mouseover"){
+          $("#img2").show();
+        }else if(event.type==="mouseout"){
+          $("#img2").hide();
+        }else if(event.type==="mousemove"){
+          $("#img2").offset({
+            left:event.pageX+10,
+            top: event.pageY+10
+          })
+        }
+      });
+      <!--    获取事件对象-->
+      $("#div1").click(function (event) {
+        alert("我是父元素");
+        console.log(event);
+      });
+      $("#s1").click(function () {
+        alert("我是子元素1，父元素可以冒泡");
+      });
+      $("#s2").click(function () {
+        alert("我是子元素2，父元素不可以冒泡");
+        return false;
+      });
+    })
+  </script>
+</head>
+<body>
+  <button id="b1">绑定单击事件</button>
+  <br/>
+  <button id="b2">触发单击事件</button>
+  <br/>
+  <div id="div1">父元素
+  <span id="s1">子元素1</span>
+    <span id="s2">子元素2</span>
+  </div>
+<img id="img1" src="ILSVRC2012_val_00008420.JPEG" >
+  <img id="img2" src="ILSVRC2012_val_00020178.JPEG" >
+
+</body>
+</html>

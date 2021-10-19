@@ -1,0 +1,49 @@
+div{
+    border: 3px solid crimson;
+    color:deepskyblue;
+    font-size: 5px;
+
+}
+span{
+    border: 3px dashed aqua;
+}
+
+/*组合选择器
+组合选择器可让多个选择器使用同一个css,优先级从上至下*/
+.class01,#id001{
+    border: 3px solid chartreuse;
+    color:black;
+    font-size: 5px;
+}
+
+/*根据ID定义属性*/
+#id001{
+    /*边框颜色*/
+    border: 3px  solid #02ff4a;
+    /*字体颜色*/
+    color: #ff3b63;
+    /*字体大小*/
+    font-size: 15px;
+    /*背景颜色*/
+    background:  bisque;
+    /*边框位置*/
+    margin-left: auto;
+    margin-right: auto;
+    /*字体位置*/
+    text-align: center;
+    /*超链接下划线颜色*/
+    text-decoration: none;
+    /*边框合并*/
+    border-collapse: collapse;
+    /*列表符号*/
+    list-style: none;
+}
+
+/*class类型选择器*/
+.class01{
+    border: 3px solid crimson;
+    color:deepskyblue;
+    font-size: 5px;
+}
+
+

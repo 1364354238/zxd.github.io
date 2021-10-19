@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!--标签和属性自己设置-->
+<books>
+    <book sn="2314">
+<!--        文本区域CDATA区：只是纯文本，XML不解析-->
+        <name><![CDATA[《时间简史》]]></name>
+        <author>霍金</author>
+        <price>32</price>
+    </book>
+<!--    单标签-->
+    <book sn="2315" name="java" author="simis" price="144"/>
+</books>

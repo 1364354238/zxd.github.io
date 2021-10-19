@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/FilterTest/FilterTest.iml" filepath="$PROJECT_DIR$/FilterTest/FilterTest.iml" />
+      <module fileurl="file://$PROJECT_DIR$/JSONAndAJAXTest/JSONAndAJAXTest.iml" filepath="$PROJECT_DIR$/JSONAndAJAXTest/JSONAndAJAXTest.iml" />
+      <module fileurl="file://$PROJECT_DIR$/JavaWeb_test.iml" filepath="$PROJECT_DIR$/JavaWeb_test.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Servlettest/Servlettest.iml" filepath="$PROJECT_DIR$/Servlettest/Servlettest.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ThreadLocalTest/ThreadLocalTest.iml" filepath="$PROJECT_DIR$/ThreadLocalTest/ThreadLocalTest.iml" />
+      <module fileurl="file://$PROJECT_DIR$/book/book.iml" filepath="$PROJECT_DIR$/book/book.iml" />
+      <module fileurl="file://$PROJECT_DIR$/cookie_session/cookie_session.iml" filepath="$PROJECT_DIR$/cookie_session/cookie_session.iml" />
+      <module fileurl="file://$PROJECT_DIR$/jsptest/jsptest.iml" filepath="$PROJECT_DIR$/jsptest/jsptest.iml" />
+    </modules>
+  </component>
+</project>

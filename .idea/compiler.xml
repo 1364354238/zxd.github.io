@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="Servlettest" />
+        <module name="FilterTest" />
+        <module name="JSONAndAJAXTest" />
+        <module name="book" />
+        <module name="ThreadLocalTest" />
+        <module name="cookie_session" />
+        <module name="jsptest" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="book" target="1.8" />
+      <module name="cookie_session" target="1.8" />
+      <module name="demo" target="1.8" />
+      <module name="Dweb" target="1.8" />
+      <module name="FilterTest" target="1.8" />
+      <module name="JSONAndAJAXTest" target="1.8" />
+      <module name="jsptest" target="1.8" />
+      <module name="Servlettest" target="1.8" />
+      <module name="ThreadLocalTest" target="1.8" />
+    </bytecodeTargetLevel>
+  </component>
+</project>

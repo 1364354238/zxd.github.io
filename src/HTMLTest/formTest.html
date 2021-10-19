@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>表单</title>
+</head>
+<body>
+  <h1>表单</h1>
+<!--  id保证唯一值，label用于链接对应的表单部件，点击label可以激活该部件
+      name相同表示属于同一个部件
+      type="radio":单选框
+      type="checkbox":筛选框
+      select 下拉菜单,option选项
+      textarea:多行文本输入框，rows,cols
+
+      action属性设置提交的服务器地址
+      method属性设置提交的方式get ,post
+      get请求特点：URL？name=value&name=value，超过100个字符不显示，不安全
+      post请求特点:URL ,相对安全，理论上没有长度限制
+
+
+      表单提交时，数据没有发送给服务器的情况：
+        1.没有设置name
+        2.单选，复选，option都需要设置value
+        3.表单提交项要在form中
+      -->
+  <form action="http://localhost:8080" method="get">
+      <label for="name">用户名</label>
+      <input id="name" name="用户名" type="text" value="默认值">
+    <br/>
+      <label for="password">密码</label>
+      <input id="password" name="密码" type="password">
+    <br>
+      <label >性别</label>
+      <input checked="checked" name="sex" type="radio" value="boy">男<input name="sex" type="radio" value="girl">女
+    <br>
+      <label >兴趣</label>
+      <input name="兴趣" type="checkbox" value="篮球"/>篮球<input name="兴趣" type="checkbox" value="足球"/>足球
+    <br>
+      <label>国籍</label>
+      <select name="国籍">
+        <option>请选择国籍</option>
+        <option selected="selected">中国</option>
+        <option >美国</option>
+        <option >日本</option>
+      </select>
+    <br>
+      <label >自我介绍</label>
+      <textarea cols="10" rows="10">默认值</textarea>
+    <br>
+      <button type="submit">提交</button>
+      <br>
+      <button type="reset">重置</button>
+  </form>
+</body>
+</html>
