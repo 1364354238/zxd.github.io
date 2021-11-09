@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:mvc="http://www.springframework.org/schema/mvc"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context https://www.springframework.org/schema/context/spring-context.xsd http://www.springframework.org/schema/mvc https://www.springframework.org/schema/mvc/spring-mvc.xsd">
+
+    <context:component-scan base-package="com.example.SpringMVC.controller"/>
+    <context:component-scan base-package="com.example.SpringMVC.jackson"/>
+
+    <!--    <bean class="org.springframework.web.servlet.handler.BeanNameUrlHandlerMapping"/>-->
+<!--    <bean class="org.springframework.web.servlet.mvc.SimpleControllerHandlerAdapter"/>-->
+
+<!--    让MVC不处理静态资源-->
+    <mvc:default-servlet-handler/>
+<!--    支持MVC注解驱动，会自动注入映射器和配置器-->
+    <mvc:annotation-driven>
+<!--        json乱码问题配置-->
+        <mvc:message-converters register-defaults="true">
+            <bean class="org.springframework.http.converter.StringHttpMessageConverter">
+                <constructor-arg value="UTF-8"/>
+            </bean>
+            <bean class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter">
+                <property name="objectMapper">
+                    <bean class="org.springframework.http.converter.json.Jackson2ObjectMapperFactoryBean">
+                        <property name="failOnEmptyBeans" value="false"/>
+                    </bean>
+                </property>
+            </bean>
+        </mvc:message-converters>
+    </mvc:annotation-driven>
+    <bean id="viewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+        <!--前缀-->
+        <property name="prefix" value="/WEB-INF/templates/"/>
+        <!--后缀-->
+        <property name="suffix" value=".jsp"/>
+    </bean>
+<!--    配置Thymeleaf视图解析器,可配置多个-->
+<!--    <bean id="viewResolver" class="org.thymeleaf.spring5.view.ThymeleafViewResolver">-->
+<!--&lt;!&ndash;        当前解析器的优先级&ndash;&gt;-->
+<!--        <property name="order" value="1"/>-->
+<!--        <property name="characterEncoding" value="UTF-8"/>-->
+<!--&lt;!&ndash;        模板&ndash;&gt;-->
+<!--        <property name="templateEngine">-->
+<!--            <bean class="org.thymeleaf.spring5.SpringTemplateEngine">-->
+<!--                <property name="templateResolver">-->
+<!--                    <bean class="org.thymeleaf.spring5.templateresolver.SpringResourceTemplateResolver">-->
+<!--                        &lt;!&ndash; 视图前缀 &ndash;&gt;-->
+<!--                        <property name="prefix" value="/WEB-INF/templates/"/>-->
+<!--                        &lt;!&ndash; 视图后缀 &ndash;&gt;-->
+<!--                        <property name="suffix" value=".jsp"/>-->
+
+<!--                        <property name="characterEncoding" value="UTF-8" />-->
+<!--                    </bean>-->
+<!--                </property>-->
+<!--            </bean>-->
+<!--        </property>-->
+<!--    </bean>-->
+</beans>

@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--namespace：绑定一个对应的Dao/Mapper接口-->
+<mapper namespace="com.example.dao.UserDao">
+<!--    查询语句，id对应方法名 resultType:返回结果类型-->
+    <select id="userList" resultType="com.example.pojo.User">
+--         执行SQL
+select *
+from mybatis.user;
+
+    </select>
+    <resultMap id="UserMap" type="com.example.pojo.User">
+<!--        column数据库中的字段，property实体类中的字段-->
+        <result column="id" property="id"/>
+        <result column="name" property="name"/>
+        <result column="pwd" property="password"/>
+    </resultMap>
+    <select id="get" resultMap="UserMap">
+        select * from mybatis.user
+    </select>
+    <select id="getUserById" parameterType="int" resultType="com.example.pojo.User">
+        select *
+        from mybatis.user
+        where id = #{id};
+
+    </select>
+   <insert id="insertUser" parameterType="com.example.pojo.User">
+       insert into mybatis.user (id,name,psw)
+       VALUES (#{id},#{name},#{psw});
+   </insert>
+    <update id="updateUser" parameterType="com.example.pojo.User">
+        update mybatis.user
+        set name=#{name},
+            psw=#{psw}
+        where id = #{id};
+
+    </update>
+<!--    基本类型：_int ,包装类：int-->
+    <delete id="deleteById" parameterType="int">
+        delete from mybatis.user where id=#{id};
+    </delete>
+    <insert id="addUser" parameterType="map">
+        insert into mybatis.user (id,name,psw)
+        values (#{id},#{name},${password});
+    </insert>
+    <select id="getUserByLimit" parameterType="map" resultType="User">
+        select *
+        from mybatis.user limit #{startIndex},#{endIndex};
+    </select>
+</mapper>

@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/p"
+       xmlns:c="http://www.springframework.org/schema/c"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+<!--Spring配置对象的创建-->
+    <bean id="userDaoImpl" class="com.example.Dao.UserDaoImpl">
+
+    </bean>
+
+    <bean id="mysqlImpl" class="com.example.Dao.UserDaoMysqlImpl">
+
+    </bean>
+    <bean id="UserServiceImpl" class="com.example.Service.UserServiceImpl">
+<!--        ref是引用Spring中已经创建好的对象-->
+        <property name="userDao" ref="mysqlImpl"/>
+    </bean>
+<!--    有参构造函数创建对象-->
+    <bean id="user" class="com.example.pojo.User" name="user2 u2.u3;u4">
+<!--        index:下标-->
+        <constructor-arg index="0" value="first"/>
+<!--        <constructor-arg type="java.lang.String" value="type"/>-->
+<!--        <constructor-arg name="name" value="third"/>-->
+    </bean>
+    <!--        p命名空间注入-->
+    <bean id="address" class="com.example.pojo.Address" p:address="123@123"/>
+<!--    c命名空间注入，构造器注入-->
+    <bean id="hello" class="com.example.pojo.Hello" c:str="你好" scope="prototype"/>
+    <bean id="student" class="com.example.pojo.Student">
+<!--        普通注入-->
+        <property name="name" value="李"/>
+        <property name="address" ref="address"/>
+<!--        数组注入-->
+        <property name="books">
+            <array>
+                <value>红楼梦</value>
+                <value>西游记</value>
+                <value>水浒传</value>
+                <value>三国演义</value>
+            </array>
+        </property>
+<!--        List注入-->
+        <property name="hobbys">
+            <list>
+                <value>音乐</value>
+                <value>游戏</value>
+                <value>篮球</value>
+            </list>
+        </property>
+<!--        map-->
+        <property name="card">
+            <map>
+                <entry key="身份证" value="21312312"/>
+                <entry key="银行卡" value="555521312312"/>
+            </map>
+        </property>
+<!--        set-->
+        <property name="games">
+            <set>
+                <value>LOL</value>
+                <value>DNF</value>
+                <value>CF</value>
+            </set>
+        </property>
+<!--        null-->
+        <property name="wife">
+            <null/>
+        </property>
+<!--        properties-->
+        <property name="info">
+            <props>
+                <prop key="学号">202011111</prop>
+                <prop key="username">李</prop>
+                <prop key="password">1233</prop>
+                <prop key="sex">男</prop>
+            </props>
+        </property>
+
+    </bean>
+
+</beans>

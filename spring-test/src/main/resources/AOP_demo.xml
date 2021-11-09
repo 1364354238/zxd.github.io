@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/context
+       https://www.springframework.org/schema/context/spring-context.xsd
+        http://www.springframework.org/schema/aop
+        http://www.springframework.org/schema/aop/spring-aop.xsd"
+>
+    <bean id="userService" class="com.example.AOP_demo.UserServiceImpl"/>
+    <bean id="beforeLog" class="com.example.AOP_demo.BeforeLog"/>
+    <bean id="afterLog" class="com.example.AOP_demo.AfterLog"/>
+    <context:component-scan base-package="com.example.AOP_demo"/>
+<!--    <context:annotation-config/>-->
+<!--    方式一：使用原生SpringAPI接口配置AOP,需要导入AOP的约束-->
+    <aop:config>
+<!--        切入点：expression：表达式， execution（要执行的位置）-->
+        <aop:pointcut id="pointcut" expression="execution(* com.example.AOP_demo.UserServiceImpl.*(..))"/>
+<!--        执行环绕增加,advice-ref:加入的方法，pointcut-ref：切入点-->
+        <aop:advisor advice-ref="beforeLog" pointcut-ref="pointcut"/>
+        <aop:advisor advice-ref="afterLog" pointcut-ref="pointcut"/>
+    </aop:config>
+<!--    方式二：自定义类-->
+    <bean id="diy" class="com.example.AOP_demo.DivPointcut"/>
+    <aop:config>
+<!--        自定义切面，ref：要引入的类-->
+        <aop:aspect ref="diy">
+<!--            切入点-->
+            <aop:pointcut id="point" expression="execution(* com.example.AOP_demo.UserServiceImpl.*(..))"/>
+<!--            通知:在切入点执行什么操作-->
+            <aop:before method="before" pointcut-ref="point"/>
+            <aop:after method="after" pointcut-ref="point"/>
+
+        </aop:aspect>
+    </aop:config>
+<!--    方式三：注解-->
+<!--    开启注解支持,默认是JDK proxy-target-class="false"-->
+<!--    <bean id="annotationPointcut" class="com.example.AOP_demo.AnnotationPointcut"/>-->
+    <aop:aspectj-autoproxy proxy-target-class="false"/>
+
+
+</beans>

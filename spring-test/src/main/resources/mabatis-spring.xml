@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+
+
+<!--    使用spring的数据源替换mybatis.xml的配置,方式一-->
+    <bean id="datasource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+        <property name="driverClassName" value="com.mysql.cj.jdbc.Driver"/>
+        <property name="url"
+                  value="jdbc:mysql://localhost:3306/mybatis?useSSL=true&amp;useUnicode=true&amp;characterEncoding=UTF-8&amp;serverTimezone=GMT%2B8"/>
+        <property name="password" value="510510"/>
+        <property name="username" value="root"/>
+    </bean>
+
+    <!--    使用Spring的SqlSessionFactory-->
+    <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+        <property name="dataSource" ref="datasource"/>
+<!--       绑定mybatis的配置文件,如不需要可省攻略-->
+<!--        <property name="configLocation" value="classpath:mybatis-config1.xml"/>-->
+        <property name="mapperLocations" value="classpath:com/example/mybatis_demo/UserMapper.xml"/>
+    </bean>
+<!--    sqlSession-->
+    <bean id="sqlSession" class="org.mybatis.spring.SqlSessionTemplate">
+<!--通过构造函器注入SqlSessionFactory,因为它没有set方法-->
+        <constructor-arg index="0" ref="sqlSessionFactory"/>
+    </bean>
+    <bean id="userMapper" class="com.example.mybatis_demo.UserMapperImpl">
+        <property name="sessionTemplate" ref="sqlSession"/>
+    </bean>
+    <!--    方式二:可省去sqlSession-->
+    <bean id="userMapper2" class="com.example.mybatis_demo.UserMapperImpl2">
+        <property name="sqlSessionFactory" ref="sqlSessionFactory"/>
+    </bean>
+</beans>

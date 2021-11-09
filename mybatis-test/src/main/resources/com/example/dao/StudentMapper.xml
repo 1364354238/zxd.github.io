@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--namespace：绑定一个对应的Dao/Mapper接口-->
+<mapper namespace="com.example.dao.StudentMapper">
+    <resultMap id="result1" type="com.example.pojo.Student1">
+<!--        <result column="tid" property="teacher" />-->
+        <association property="teacher" column="tid" javaType="teacher" select="getTeacher"/>
+    </resultMap>
+    <select id="selectAll" resultMap="result1">
+        select *
+        from student1;
+    </select>
+    <select id="getTeacher" resultType="teacher">
+        select *
+        from teacher
+        where id = ${id};
+    </select>
+    <resultMap id="result2" type="student1">
+        <result column="id" property="id"/>
+        <result column="SName" property="name"/>
+        <association property="teacher" javaType="teacher">
+            <result property="name" column="TName"/>
+        </association>
+    </resultMap>
+    <select id="selectSAndT" resultMap="result2">
+        select s.id as id,s.name as SName,t.name as TName
+        from student1 s,
+             teacher t
+        where s.tid = t.id;
+    </select>
+</mapper>

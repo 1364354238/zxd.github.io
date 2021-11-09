@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<!--核心配置文件-->
+<configuration>
+    <!--加载属性文件-->
+    <!--    <properties resource="JDBC.properties"/>-->
+    <environments default="development">
+        <!--        开发环境-->
+        <environment id="development">
+            <!--            事务管理-->
+            <transactionManager type="JDBC"/>
+            <dataSource type="POOLED">
+                <property name="driver" value="com.mysql.cj.jdbc.Driver"/>
+                <!--                   SSL协议提供服务主要：
+                       1）认证用户服务器，确保数据发送到正确的服务器； 　　 .
+                       2）加密数据，防止数据传输途中被窃取使用；
+                       3）维护数据完整性，验证数据在传输过程中是否丢失；
+
+                   当前支持SSL协议两层：
+                            SSL记录协议（SSL Record Protocol）：建立靠传输协议（TCP）高层协议提供数据封装、压缩、加密等基本功能支持
+                        SSL握手协议（SSL Handshake Protocol）：建立SSL记录协议用于实际数据传输始前通讯双进行身份认证、协商加密
+                        算法、 交换加密密钥等。
+                -->
+                <property name="url" value="jdbc:mysql://localhost:3306/mybatis?useSSL=true&amp;useUnicode=true&amp;characterEncoding=UTF-8&amp;serverTimezone=GMT%2B8"/>
+                <property name="username" value="root"/>
+                <property name="password" value="510510"/>
+            </dataSource>
+        </environment>
+    </environments>
+    <mappers>
+        <mapper resource="com/example/mybatis_demo/UserMapper.xml"/>
+    </mappers>
+</configuration>

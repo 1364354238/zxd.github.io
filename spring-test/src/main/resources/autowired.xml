@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/context
+       https://www.springframework.org/schema/context/spring-context.xsd"
+
+>
+
+
+    <bean id="cat33" class="com.example.pojo.Cat"/>
+    <bean id="cat22" class="com.example.pojo.Cat"/>
+    <bean id="dog" class="com.example.pojo.Dog"/>
+<!--    byName:会自动在容器中查找，和自己set方法对应的bean id-->
+    <bean id="people2" class="com.example.pojo.People" autowire="byName">
+        <property name="name" value="李"/>
+    </bean>
+    <bean id="people" class="com.example.pojo.People"/>
+<!--    指定要扫描的包,这个包下的注解就会生效-->
+    <context:component-scan base-package="com.example.pojo"/>
+    <context:annotation-config/>
+</beans>

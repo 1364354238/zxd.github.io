@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ajax测试</title>
+</head>
+<script>
+  function go() {
+    let url1=document.getElementById("url").value;
+    document.getElementById("iframe").src = url1;
+  }
+</script>
+<body>
+<div>
+  <p>请输入地址：</p>
+  <p>
+    <input type="text" id="url" >
+    <input type="button" value="提交" onclick="go()">
+  </p>
+</div>
+  <div>
+    <iframe id="iframe" style="width: 100% ;height: 500px"></iframe>
+  </div>
+</body>
+</html>

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context https://www.springframework.org/schema/context/spring-context.xsd">
+
+<!--    1.关联数据库配置文件-->
+    <context:property-placeholder location="classpath:database.properties"/>
+<!--    2.druid连接池-->
+    <bean id="dataSource" class="com.alibaba.druid.pool.DruidDataSource">
+        <property name="driverClassName" value="${driver}"/>
+        <property name="username" value="${user}"/>
+        <property name="password" value="${psw}"/>
+        <property name="url" value="${url}"/>
+<!--        <property name="maxPoolPreparedStatementPerConnectionSize" value="30"/>-->
+        <property name="defaultAutoCommit" value="false"/>
+    </bean>
+<!--    <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">-->
+<!--        <property name="driverClassName" value="com.mysql.cj.jdbc.Driver"/>-->
+<!--        <property name="url"-->
+<!--                  value="jdbc:mysql://localhost:3306/mybatis?useSSL=true&amp;useUnicode=true&amp;characterEncoding=UTF-8&amp;serverTimezone=GMT%2B8"/>-->
+<!--        <property name="password" value="510510"/>-->
+<!--        <property name="username" value="root"/>-->
+<!--    </bean>-->
+<!--    3.SQLSessionFactory-->
+    <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+<!--        连接池-->
+        <property name="dataSource" ref="dataSource"/>
+<!--        绑定mybatis-->
+        <property name="configLocation" value="classpath:mybatis.xml"/>
+    </bean>
+<!--    配置Dao接口的扫描包,动态地实现Dao接口-->
+    <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+        <property name="sqlSessionFactoryBeanName" value="sqlSessionFactory"/>
+<!--        要扫描的Dao包-->
+        <property name="basePackage" value="com.ssm.dao"/>
+    </bean>
+</beans>
