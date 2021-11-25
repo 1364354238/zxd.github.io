@@ -1,0 +1,7 @@
+dubbo:
+  application:
+    #服务应用名字
+    name: consumer
+  registry:
+    #    注册中心地址
+    address: zookeeper://127.0.0.1:2181

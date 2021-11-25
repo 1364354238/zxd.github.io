@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.example.shirotest.mapper.UserMapper">
+    <select id="queryUserList"  resultType="com.example.shirotest.pojo.User">
+        SELECT * FROM user ;
+    </select>
+    <select id="queryUserByName"  parameterType="string" resultType="com.example.shirotest.pojo.User">
+        SELECT * FROM user where name=#{name};
+    </select>
+    <update id="updateUser" parameterType="com.example.shirotest.pojo.User">
+        update mybatis.user set name=#{name} ,psw=#{psw} where id=#{id};
+    </update>
+</mapper>

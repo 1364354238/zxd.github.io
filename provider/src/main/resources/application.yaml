@@ -1,0 +1,10 @@
+dubbo:
+  application:
+    #服务应用名字
+    name: procider
+  registry:
+#    注册中心地址
+    address: zookeeper://127.0.0.1:2181
+  scan:
+#    扫描包，哪些服务注册到服务中心
+    base-packages: com.example.provider.service
