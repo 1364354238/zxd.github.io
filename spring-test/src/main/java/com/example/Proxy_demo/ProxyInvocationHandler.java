@@ -18,9 +18,9 @@ public class ProxyInvocationHandler implements InvocationHandler  {
     }
 //    生成代理接口对象，实现接口类由this决定
     public Object getProxy(){
-        System.out.println( target.getClass());
-        System.out.println(this.getClass());
-        return Proxy.newProxyInstance(this.getClass().getClassLoader(), target.getClass().getInterfaces(),this);
+        System.out.println( "代理的对象"+target.getClass());
+        System.out.println("代理类"+this.getClass());
+        return Proxy.newProxyInstance(target.getClass().getClassLoader(), target.getClass().getInterfaces(),this);
     }
 
 //    处理代理实例，并返回结果
@@ -35,8 +35,8 @@ public class ProxyInvocationHandler implements InvocationHandler  {
      */
     @Override
     public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
-        System.out.println(proxy.getClass());
-        System.out.println(method.getName());
+        System.out.println("代理的类的接口"+proxy.getClass());
+        System.out.println("方法"+method.getName());
         Object result = method.invoke(target, args);
         return result;
     }

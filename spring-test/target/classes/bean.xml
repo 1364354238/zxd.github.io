@@ -26,7 +26,7 @@
     <bean id="address" class="com.example.pojo.Address" p:address="123@123"/>
 <!--    c命名空间注入，构造器注入-->
     <bean id="hello" class="com.example.pojo.Hello" c:str="你好" scope="prototype"/>
-    <bean id="student" class="com.example.pojo.Student">
+    <bean id="student1" class="com.example.pojo.Student1">
 <!--        普通注入-->
         <property name="name" value="李"/>
         <property name="address" ref="address"/>
